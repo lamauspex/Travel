@@ -1,0 +1,11 @@
+{
+    "python.testing.pytestArgs": [
+        ".",
+        "--rootdir=.",
+        "--tb=short",
+        "-v"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.autoTestDiscoverOnSaveEnabled": true
+}

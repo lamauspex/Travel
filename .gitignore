@@ -1,0 +1,19 @@
+# Virtual Environment
+travel/
+venv/
+
+# Database
+*.sqlite3
+*.db
+
+# Media files
+/media/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+.pytest_cache/

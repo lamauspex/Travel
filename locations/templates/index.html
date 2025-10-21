@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта интересных мест Москвы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .api-info {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .endpoints {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌍 Карта интересных мест Москвы</h1>
+        <p>Добро пожаловать в бэкенд для карты активного отдыха Артёма!</p>
+    </div>
+    
+    <div class="content">
+        <h2>Доступные эндпоинты API:</h2>
+        <div class="api-info">
+            <ul class="endpoints">
+                <li><strong>GET /api/categories/</strong> - Список категорий</li>
+                <li><strong>GET /api/locations/</strong> - Список локаций</li>
+                <li><strong>GET /admin/</strong> - Панель администратора</li>
+            </ul>
+        </div>
+        
+        <h2>Следующие шаги:</h2>
+        <ol>
+            <li>Добавьте категории через админку (/admin)</li>
+            <li>Добавьте локации с координатами</li>
+            <li>Фронтенд может получать данные через API</li>
+        </ol>
+    </div>
+</body>
+</html>
