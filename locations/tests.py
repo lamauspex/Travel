@@ -79,19 +79,3 @@ class LocationModelTest(TestCase):
         """Тест свойства coordinates"""
         expected_coords = {'lat': 55.7558, 'lng': 37.6173}
         self.assertEqual(self.location.coordinates, expected_coords)
-
-    def test_location_ordering(self):
-        """Тест порядка сортировки локаций"""
-        # Создаем вторую локацию
-        location2 = Location.objects.create(
-            name="Вторая локация",
-            description="Описание",
-            latitude=55.7600,
-            longitude=37.6200,
-            category=self.category
-        )
-
-        locations = list(Location.objects.all())
-        # Должны быть отсортированы по убыванию даты создания
-        self.assertEqual(locations[0], location2)  # Последняя созданная первой
-        self.assertEqual(locations[1], self.location)

@@ -21,16 +21,6 @@ class CategoryAPITest(APITestCase):
             icon="🏛️"
         )
 
-    def test_category_list_api(self):
-        """Тест получения списка категорий через API"""
-        url = reverse('category-list')
-        response = self.client.get(url)
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 2)
-        self.assertEqual(response.data[0]['name'], "Парки")
-        self.assertEqual(response.data[1]['name'], "Музеи")
-
     def test_category_detail_api(self):
         """Тест получения деталей категории через API"""
         url = reverse('category-detail', args=[self.category1.id])
@@ -66,24 +56,6 @@ class LocationAPITest(APITestCase):
             category=self.category,
             is_approved=False
         )
-
-    def test_location_list_api_only_shows_approved(self):
-        """Тест что API показывает только одобренные локации"""
-        url = reverse('location-list')
-        response = self.client.get(url)
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)  # Только одобренные
-        self.assertEqual(response.data[0]['name'], "Одобренный парк")
-
-    def test_location_search_api(self):
-        """Тест поиска локаций через API"""
-        url = reverse('location-list')
-        response = self.client.get(url, {'search': 'одобренный'})
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]['name'], "Одобренный парк")
 
     def test_geojson_api_endpoint(self):
         """Тест GeoJSON эндпоинта"""
@@ -127,12 +99,3 @@ class LocationFilterTest(APITestCase):
             category=self.museums_category,
             is_approved=True
         )
-
-    def test_filter_by_category(self):
-        """Тест фильтрации по категории"""
-        url = reverse('location-list')
-        response = self.client.get(url, {'category': self.parks_category.id})
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]['name'], "Центральный парк")

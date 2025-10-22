@@ -17,6 +17,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/locations/geojson/', LocationViewSet.as_view({'get': 'geojson'}), name='locations-geojson'),
+    path('api/stats/', views.api_stats, name='api-stats'),
 ]
 
 if settings.DEBUG:

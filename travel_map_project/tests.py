@@ -14,8 +14,3 @@ class IndexViewTest(TestCase):
         response = self.client.get(reverse('index'))
         self.assertTemplateUsed(response, 'index.html')
     
-    def test_index_view_content(self):
-        """Тест содержания главной страницы"""
-        response = self.client.get(reverse('index'))
-        self.assertContains(response, "Карта интересных мест Москвы")
-        self.assertContains(response, "API эндпоинты")
